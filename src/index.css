@@ -17,3 +17,107 @@ code {
 	margin: auto;
  	max-width: 600px;
 }
+
+
+.contact-item {
+	padding: 0.5rem 1rem;
+	margin: 0.8rem 0;
+	background: rgba(0,0,0, .1);
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 5px;
+}
+
+.contact-item__data{
+	width: 80%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+.contact-item__data .name{
+	font-weight: bold;
+	padding: 0.5rem;
+}
+
+.contact-item__actions {
+	color: rgba(0,0,0, .3);
+}
+
+.contact-item__actions .remove:hover{
+	color: rgba(250, 72, 62, 0.6);	
+}
+
+.contact-item__actions .change:hover{
+	color: rgba(3, 252, 169, .6);;
+}
+
+
+
+.search-form {
+	padding: 0.5rem 1rem;
+	margin: 0.8rem 0;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+}
+
+.search-form__icon {
+	padding: 0.5rem;
+}
+
+.search-form__input {
+	border: none;
+	border-bottom: 2px solid rgba(0,0,0, .2);
+	font-size: 1.5rem;
+	outline:none;
+}
+
+.search-form__input:focus {
+	border: none;
+	border-bottom: 2px solid rgba(3, 252, 169, .8);
+}
+
+.search-form__button {
+	border: none;
+	border-radius: 5px;
+	background-color: rgba(0,0,0, .1);
+	padding: 0.5rem;
+	margin: 0 1rem;
+}
+
+
+
+.add-contact-button {
+	position: absolute;
+	bottom: 2rem;
+	right: 2rem;
+	background: rgba(3, 252, 169, .3);
+	width: 60px;
+	height: 60px;
+	border-radius: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.add-contact-button:hover {
+	background: rgba(3, 252, 169, .8);
+}
+
+.add-contact-button:hover span{
+	color:  rgba(0, 0, 0, .9);
+}
+
+.add-contact-button span{
+	font-size: 2.5rem;
+	font-weight: bold;
+	color:  rgba(0, 0, 0, .5);
+}
+
+

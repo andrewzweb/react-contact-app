@@ -1,6 +1,7 @@
 import React from 'react';
 import ContactSearch from './Contact/ContactSearch'
 import ContactList from './Contact/ContactList'
+import AddContact from './Contact/AddContact'
 
 function App() {
   
@@ -16,6 +17,8 @@ function App() {
 
   return (
     <div className='wrapper'>
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+	  <AddContact/>
 	  <h1>Contact's</h1>
 	  <ContactSearch/>
 	  <ContactList contacts={contacts}/>
