@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import Context from '../context'
 import Icon from '@material-ui/core/Icon';
 
 function ContactItem({contact, index}){
+  const { removeContact } = useContext(Context)
+
   return (
 	<div className='contact-item'>
 	  <div className='contact-item__data'>
@@ -11,7 +14,7 @@ function ContactItem({contact, index}){
 
 	  <div className='contact-item__actions'>
 		<span className='change'><Icon>create</Icon></span>
-		<span className='remove'><Icon>delete-forever</Icon></span>
+		<span className='remove' onClick={removeContact.bind(null, contact.id)} ><Icon>delete-forever</Icon></span>
 	  </div>
 	</div>
   )
