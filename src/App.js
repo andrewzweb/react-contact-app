@@ -19,13 +19,20 @@ function App() {
 	setContacts(contacts.filter(contact => contact.id !== id))
   }
 
+  function addContact(name, phone){
+	  setContacts(contacts.concat([{
+		  id: Date.now(),
+		  name: name,
+		  phone: phone
+	  }]))
+  }
 
   return (
 	<Context.Provider value={{ removeContact }}>
 	  <div className='wrapper'>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 		<h1>Contact's</h1>
-		<AddContact/>
+		<AddContact onCreate={addContact}/>
 		<ContactSearch/>
 		<ContactList contacts={contacts}/>
 	  </div>
