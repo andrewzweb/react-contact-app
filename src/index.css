@@ -94,7 +94,7 @@ code {
 
 
 .add-contact-button {
-	position: absolute;
+	position: fixed;
 	bottom: 2rem;
 	right: 2rem;
 	background: rgba(3, 252, 169, .3);
@@ -120,4 +120,14 @@ code {
 	color:  rgba(0, 0, 0, .5);
 }
 
+.form-add-contact{
+	width: 200px;
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.form-add-contact input, button{
+	margin: 0.3rem;
+	padding: 0.5rem;
+}
 
