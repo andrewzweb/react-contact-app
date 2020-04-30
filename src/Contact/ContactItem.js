@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
+import PropTypes from 'prop-types'
 import Context from '../context'
-import Icon from '@material-ui/core/Icon';
+import Icon from '@material-ui/core/Icon'
 
 function ContactItem({contact, index}){
   const { removeContact } = useContext(Context)
@@ -19,6 +20,12 @@ function ContactItem({contact, index}){
 	</div>
   )
 }
+
+ContactItem.propTypes = {
+  contact: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired,
+}
+
 
 export default ContactItem
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import ContactItem from './ContactItem'
 
 const styles = {
@@ -21,5 +22,12 @@ function ContactList(props) {
 	</ul>
   )
 }
+
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired 
+}
+
+
 
 export default ContactList

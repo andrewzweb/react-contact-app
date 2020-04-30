@@ -1,5 +1,5 @@
-import React from 'react';
-import Icon from '@material-ui/core/Icon';
+import React from 'react'
+import Icon from '@material-ui/core/Icon'
 
 
 function ContactSearch() {
@@ -9,7 +9,8 @@ function ContactSearch() {
 	  <input className='search-form__input'/>
 	  <button className='search-form__button'>search</button>
 	</form>
-  );
+  )
 }
 
-export default ContactSearch;
+export default ContactSearch
+

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Context from '../context'
 import Icon from '@material-ui/core/Icon'
+import PropTypes from 'prop-types'
 
 
 function AddContact({onCreate}){
@@ -31,6 +31,11 @@ function AddContact({onCreate}){
 		</div>
   )
 }
+
+AddContact.propTypes = {
+  onCreate: PropTypes.func.isRequired,
+}
+
 
 export default AddContact 
 
