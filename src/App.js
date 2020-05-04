@@ -17,22 +17,24 @@ function App() {
 	setContacts(contacts.filter(contact => contact.id !== id))
   }
 
-  function searchContact(query){
-	console.log(contacts)
-	console.log(query)
-	if (query != ''){
-	   console.log('query empty')
+	function searchContact(query){
+		console.log(contacts)
+		const re = new RegExp(query , 'gi')
+		console.log('re is : ' + query)
+		
+		setContacts(
+			contacts.map(contact => {
+				contact.show = true 
+				if (re.test(contact.name) == true ){
+					contact.show = true
+				}else if (re.test(contact.name) != true){
+					contact.show = false
+				}
 
-	  setContacts(contacts.map(contact => {
-		  if (contact.name.indexOf(query) == true){
-			  contact.show = true
-		  }else if (contact.name.indexOf(query) != true){
-			  contact.show = false
-		  }
-		  return contact
-     }))
+				return contact	
+			})
+		)
 	}
-}
 
   function addContact(name, phone){
 	  setContacts(contacts.concat([{
