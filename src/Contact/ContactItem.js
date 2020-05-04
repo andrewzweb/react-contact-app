@@ -5,9 +5,14 @@ import Icon from '@material-ui/core/Icon'
 
 function ContactItem({contact, index}){
   const { removeContact } = useContext(Context)
+  const classes = ['contact-item']
+
+  if (!contact.show){
+	  classes.push('hide')
+  }
 
   return (
-	<div className='contact-item'>
+	<div className={classes.join(' ')}>
 	  <div className='contact-item__data'>
 		<span className='name'>{contact.name}</span>
 		<span>{contact.phone}</span>

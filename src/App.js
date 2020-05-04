@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import Context from './context'
 import ContactSearch from './Contact/ContactSearch'
 import ContactList from './Contact/ContactList'
@@ -6,18 +6,33 @@ import AddContact from './Contact/AddContact'
 
 function App() {
   const [contacts, setContacts] = React.useState([
-	{'id': 1, name: 'Andrew', phone: '096 12 34 567'},
-	{'id': 2, name: 'Barry',  phone: '096 12 34 567'},
-	{'id': 3, name: 'Loly',   phone: '096 12 34 567'},
-	{'id': 4, name: 'Gogi',   phone: '096 12 34 567'},
-	{'id': 5, name: 'Wick',   phone: '096 12 34 567'},
-	{'id': 6, name: 'Toni',   phone: '096 12 34 567'},
-	{'id': 7, name: 'Tomas',  phone: '096 12 34 567'},
+	{'id': 1, name: 'Andrew', phone: '096 12 34 567', show: true},
+	{'id': 2, name: 'Barry',  phone: '096 12 34 567', show: true},
+	{'id': 3, name: 'Gogi',   phone: '096 12 34 567', show: true},
+	{'id': 4, name: 'Toni',   phone: '096 12 34 567', show: true},
+	{'id': 5, name: 'Tomas',  phone: '096 12 34 567', show: true},
 	])
 
   function removeContact(id){
 	setContacts(contacts.filter(contact => contact.id !== id))
   }
+
+  function searchContact(query){
+	console.log(contacts)
+	console.log(query)
+	if (query != ''){
+	   console.log('query empty')
+
+	  setContacts(contacts.map(contact => {
+		  if (contact.name.indexOf(query) == true){
+			  contact.show = true
+		  }else if (contact.name.indexOf(query) != true){
+			  contact.show = false
+		  }
+		  return contact
+     }))
+	}
+}
 
   function addContact(name, phone){
 	  setContacts(contacts.concat([{
@@ -33,11 +48,16 @@ function App() {
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 		<h1>Contact's</h1>
 		<AddContact onCreate={addContact}/>
-		<ContactSearch/>
+		<ContactSearch searchQuery={searchContact}/>
 		<ContactList contacts={contacts}/>
 	  </div>
 	</Context.Provider>
   );
 }
 
-export default App;
+export default App
+
+
+
+
+
