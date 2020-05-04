@@ -1,7 +1,5 @@
 import React, { useState }  from 'react'
 import Icon from '@material-ui/core/Icon'
-import Context from '../context'
-
 
 function ContactSearch({searchQuery}) {
 	const [ query, setQuery ] = useState('')
@@ -10,7 +8,6 @@ function ContactSearch({searchQuery}) {
 		event.preventDefault()
 		if (query.trim()){
 			searchQuery(query)
-			setQuery('')
 		}
 	}
 
