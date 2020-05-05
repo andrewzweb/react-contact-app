@@ -4,18 +4,18 @@ import Icon from '@material-ui/core/Icon'
 function ContactSearch({searchQuery}) {
 	const [ query, setQuery ] = useState('')
 	
-	function submitHadler(event){
-		event.preventDefault()
-		if (query.trim()){
-			searchQuery(query)
-		}
-	}
+	const findMe = (event) => {
+		setQuery(event.target.value)
+		searchQuery(event.target.value)
+	} 
 
 	return (
-	<form className='search-form' onSubmit={submitHadler}>
+	<form className='search-form'>
 	  <Icon className='search-form__icon'>search</Icon>
-	  <input className='search-form__input' value={query} onChange={event => setQuery(event.target.value)}/>
-	  <button className='search-form__button'>search</button>
+	  <input className='search-form__input' 
+			 value={query} 
+			 onChange={findMe}
+			 placeholder='Search contact...'/>
 	</form>
   )
 }

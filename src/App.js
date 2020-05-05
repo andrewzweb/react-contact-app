@@ -19,13 +19,17 @@ function App() {
 
 
   function searchContact(query){
-	let re = new RegExp(query , 'giu')
+	let re = new RegExp(query , 'gi')
 	setContacts(contacts.map(contact => {
 	  contact.show = true 
-	  if (re.test(contact.name) === true ){
+	  if (query === ''){
 		contact.show = true
-	  }else if (re.test(contact.name) !== true){
-		contact.show = false
+	  } else if (query !== ''){
+		if (re.test(contact.name) === true ){
+		  contact.show = true
+		}else if (re.test(contact.name) !== true){
+		  contact.show = false
+		}
 	  }
 	  return contact	
 	})
@@ -55,4 +59,5 @@ function App() {
 }
 
 export default App
+
 
