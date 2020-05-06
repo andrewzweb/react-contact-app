@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
 import PropTypes from 'prop-types'
-import Context from '../context'
-import Icon from '@material-ui/core/Icon';
-import EditContact from '../component/EditContact/EditContact';
+import Context from '../../context'
+import Icon from '@material-ui/core/Icon'
+import EditContact from '../ContactEdit/ContactEdit'
 
 
 function ContactItem({contact, index}){

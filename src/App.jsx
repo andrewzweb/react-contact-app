@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Context from './context'
-import ContactSearch from './Contact/ContactSearch'
-import ContactList from './Contact/ContactList'
-import AddContact from './Contact/AddContact'
+import ContactSearch from './component/ContactSearch/ContactSearch'
+import ContactList from './component/ContactList/ContactList'
+import AddContact from './component/ContactAdd/ContactAdd'
 
 
 const App = () =>{
@@ -19,11 +19,11 @@ const App = () =>{
   }
 
   const addContact = (name, phone) => {
-	  setContacts(contacts.concat([{
-		  id: Date.now(),
-		  name: name,
-		  phone: phone
-	  }]))
+	setContacts(contacts.concat([{
+	  id: Date.now(),
+	  name: name,
+	  phone: phone
+	}]))
   }
 
   const searchContact = (query) =>{
