@@ -44,6 +44,7 @@ code {
 }
 
 .contact-item__actions {
+	display: flex;
 	color: rgba(0,0,0, .3);
 }
 
