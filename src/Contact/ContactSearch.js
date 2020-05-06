@@ -20,5 +20,10 @@ function ContactSearch({searchQuery}) {
   )
 }
 
+ContactSearch.propTypes = {
+  searchQuery: PropTypes.func.isRequired,
+}
+
+
 export default ContactSearch
 
