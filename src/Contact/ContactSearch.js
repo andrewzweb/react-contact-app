@@ -1,12 +1,13 @@
 import React, { useState }  from 'react'
+import PropTypes from 'prop-types'
 import Icon from '@material-ui/core/Icon'
 
 function ContactSearch({searchQuery}) {
 	const [ query, setQuery ] = useState('')
 	
-	const findMe = (event) => {
-		setQuery(event.target.value)
-		searchQuery(event.target.value)
+	const findMe = (e) => {
+		setQuery(e.target.value)
+		searchQuery(e.target.value)
 	} 
 
 	return (
