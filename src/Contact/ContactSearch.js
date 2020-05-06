@@ -1,4 +1,5 @@
 import React, { useState }  from 'react'
+import PropTypes from 'prop-types'
 import Icon from '@material-ui/core/Icon'
 
 function ContactSearch({searchQuery}) {
