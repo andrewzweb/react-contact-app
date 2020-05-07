@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import Icon from '@material-ui/core/Icon'
 import PropTypes from 'prop-types'
+import { addContactActions } from '../../state/ducks/addcontact/actions'
+import { connect } from 'react-redux'
 
-
-function AddContact({onCreate}){
+function AddContact({ dispatch }){
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
 
@@ -13,7 +14,8 @@ function AddContact({onCreate}){
 
     console.log(name, phone)
 	if (name.trim()){
-	  onCreate(name, phone)
+	  dispatch(addContactActions(name, phone))
+		console.log('run.....')
 	  setName('')
 	  setPhone('')
 	}
@@ -33,12 +35,7 @@ function AddContact({onCreate}){
   )
 }
 
-AddContact.propTypes = {
-  onCreate: PropTypes.func.isRequired,
-}
-
-
-export default AddContact 
+export default connect()(AddContact)
 
 
 

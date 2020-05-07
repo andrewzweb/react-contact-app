@@ -3,9 +3,11 @@ import Context from './context'
 import ContactSearch from './component/ContactSearch/ContactSearch'
 import ContactList from './component/ContactList/ContactList'
 import AddContact from './component/ContactAdd/ContactAdd'
+import { connect } from 'react-redux'
+import {startLoading, stopLoading, addContactActions} from './state/ducks/addcontact/actions'
 
 
-const App = () =>{
+const App = ({isLoad, startLoading, stopLoading}) =>{
   const [contacts, setContacts] = React.useState([
 	{'id': 1, name: 'Andrew', phone: '096 12 34 567', show: true},
 	{'id': 2, name: 'Barry',  phone: '096 12 34 567', show: true},
@@ -13,6 +15,8 @@ const App = () =>{
 	{'id': 4, name: 'Toni',   phone: '096 12 34 567', show: true},
 	{'id': 5, name: 'Tomas',  phone: '096 12 34 567', show: true},
   ])
+	
+	console.log(store.getState())
 
   const removeContact = (id) => {
 	setContacts(contacts.filter(contact => contact.id !== id))
@@ -49,7 +53,7 @@ const App = () =>{
 	<Context.Provider value={{ removeContact }}>
 	  <div className='wrapper'>
 		<h1>Contact's</h1>
-		<AddContact onCreate={addContact}/>
+		<AddContact onCreate={addContactActions}/>
 		<ContactSearch searchQuery={searchContact}/>
 		<ContactList contacts={contacts}/>
 	  </div>
@@ -57,6 +61,7 @@ const App = () =>{
   )
 }
 
-export default App
-
+const mapDispatchToProps = ({startLoading, stopLoading})
+const mapStateToProps = ({contact})=>({isLoad:contact.isLoad,contacts:contact.contacts})
+export default connect(mapStateToProps, mapDispatchToProps)(App)
 
