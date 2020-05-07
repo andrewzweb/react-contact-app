@@ -3,7 +3,7 @@ import createReducer from "../../../utils/createReducer";
 
 const initialState = {
   isLoad: false, 
-  contacts: []
+  contactList:[]
 };
 
 const loaderReducer = createReducer(initialState)({
@@ -15,14 +15,8 @@ const loaderReducer = createReducer(initialState)({
     isLoad: false
   }),
 
-  [types.ADD_CONTACT]: (state, action) => ({
-	  ...state, 
-	  contacts: state.contacts.concat({
-		  id: Date.now(),
-		  name: action.name,
-		  phone: action.number,
-		  show: true,
-	  })
+  [types.GET_CONTACTS]: (state, {data}) => ({
+	  contactList: [...data]
   })
 });
 
