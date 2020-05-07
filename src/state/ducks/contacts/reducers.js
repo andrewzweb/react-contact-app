@@ -1,5 +1,6 @@
 import * as types from "./types";
 import createReducer from "../../../utils/createReducer";
+import contacts from "../../../api/contacts";
 
 const initialState = {
   isLoad: false, 
@@ -17,6 +18,11 @@ const loaderReducer = createReducer(initialState)({
 
   [types.GET_CONTACTS]: (state, {data}) => ({
 	  contactList: [...data]
+  }),
+
+  [types.ADD_CONTACT]: (state, {contact}) => ({
+    ...state,
+    contactList: [...state.contactList, contact]
   })
 });
 

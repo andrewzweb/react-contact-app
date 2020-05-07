@@ -12,3 +12,5 @@ export const stopLoading = () => ({
 
 export const getContacts = () => dispatch => 
   api.contacts.getContacts().then(data => data ? dispatch({ data, type: types.GET_CONTACTS}): null)
+
+  export const addContact = (contact) =>({type: types.ADD_CONTACT, contact})
