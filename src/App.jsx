@@ -6,7 +6,7 @@ import  './styles.css';
 
 
 
-const App = ({contacts, getContacts}) =>{
+const App = ({contacts, getContacts, delContact}) =>{
 
 	useState(()=>{
 		getContacts()
