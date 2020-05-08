@@ -1,32 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { startLoading, stopLoading, getContacts  } from './state/ducks/contacts/actions';
+import { delContact, getContacts} from './state/ducks/contacts/actions';
 import AddContact from './components/AddContact';
+import  './styles.css';
 
-const styles = {
-  holder: {
-	display: 'flex',
-	maxWidth: '500px',
-	justifyContent: 'center',
-	flexFlow: 'column nowrap',
-	margin: 'auto'
-  },
-  item: {
-	display: 'flex',
-	padding: '0.3rem',
-	margin: '0.3rem',
-	alignItems: 'center',
-	background: '#eee', 
-	color: '#333',
-	borderRadius: '5px'
-  },
-  num: {
-	margin: '0 0.5rem',
-	padding: '1rem',
-	background: '#999',
-	borderRadius: '5px'
-  }
-}
+
 
 const App = ({contacts, getContacts}) =>{
 
@@ -35,23 +13,24 @@ const App = ({contacts, getContacts}) =>{
 	}, [])
 
 	return (
-		<>
+		<div className='contact-holder'>
 		<AddContact />
 		<div>
 			{contacts && contacts.map((contact, i)=> 
-				<div key={contact.id || i+1}>
-					Contact #{ contact.id || i+1 } :
-				<p>{contact.name}</p>
-				<p>{contact.phone}</p>
-				</div>
-				)}
+			<div className='contact-item' key={contact.id || i+1}>
+              <span className='contact-id'>{ contact.id || i+1 }</span>
+			  <p>{contact.name}</p>
+              <p>{contact.phone}</p>
+            <button type="button" onClick={()=>delContact(contact.id)}>DEL</button>
+	        </div>
+            )}
 		</div>
-	  </>
+	  </div>
   )
 }
 
 
-const mapDispatchToProps = ({startLoading, stopLoading, getContacts})
+const mapDispatchToProps = ({delContact, getContacts})
 
 const mapStateToProps = ({contacts})=>({contacts: contacts.contactList})
 

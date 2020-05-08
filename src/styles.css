@@ -1,0 +1,50 @@
+
+.contact-holder {
+	display: flex;
+	max-width: 500px;
+	justify-content: center;
+	flex-flow: column nowrap;
+	margin: auto;
+}
+
+.contact-list{
+	display: flex;
+}
+
+.contact-item {
+	display: flex;
+	padding: 0.3rem;
+	margin: 0.3rem;
+	align-items: center;
+	background: #eee;
+	color: #333;
+	border-radius: 5px;
+}
+
+.contact-id {
+	margin: 0 0.5rem;
+	padding: 1rem;
+	background: #999;
+	border-radius: 5px;
+}
+
+.contact-add {
+	width: 150px;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.contact-add input , .contact-add button {
+	width: 100%;
+	padding: 0.5rem;
+	margin: 0.3rem;
+}
+
+.rm {
+	background-color: red;
+	padding: 0.5rem;
+	border-radius: 5px;
+}
+

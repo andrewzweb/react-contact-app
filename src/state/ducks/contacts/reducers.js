@@ -3,7 +3,6 @@ import createReducer from "../../../utils/createReducer";
 import contacts from "../../../api/contacts";
 
 const initialState = {
-  isLoad: false, 
   contactList:[]
 };
 
@@ -23,7 +22,14 @@ const loaderReducer = createReducer(initialState)({
   [types.ADD_CONTACT]: (state, {contact}) => ({
     ...state,
     contactList: [...state.contactList, contact]
-  })
+  }),
+
+  [types.DEL_CONTACT]: (state, {contact_id}) => ({
+    ...state,
+    contactList: [...state.contactList, {name:contact_id, phone:contact_id}]
+  }),
+
+
 });
 
 

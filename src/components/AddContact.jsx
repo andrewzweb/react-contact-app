@@ -6,10 +6,16 @@ const AddContact = ({addContact}) => {
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     return(
-        <div>
+        <div className='contact-add'>
             <label>Add contact</label>
-            <input type="text" name='name' onChange={e=>setName(e.target.value)}/>
-            <input type="text" name='phone' onChange={e=>setPhone(e.target.value)}/>
+            <input type="text" 
+				   name='name' 
+				   onChange={e=>setName(e.target.value)} 
+			        placeholder='Name'/>
+            <input type="text" 
+				   name='phone' 
+				   onChange={e=>setPhone(e.target.value)} 
+			       placeholder='Phone number'/>
             <button type="button" onClick={()=>addContact({name,phone})}>Add contact</button>
         </div>
     )
